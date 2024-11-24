@@ -1,4 +1,4 @@
-package com.pichincha.accountservice.presentation;
+package com.pichincha.accountservice.presentation.account;
 
 import com.pichincha.accountservice.application.account.CrudAccountUseCase;
 import com.pichincha.accountservice.application.account.dtos.AccountDTO;
@@ -31,23 +31,6 @@ public class AccountController {
     ) {
         AccountDTO account = accountUseCase.getAccountById(id);
         return ResponseEntity.ok(account);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<AccountDTO> updateAccount(
-            @PathVariable("id") Long id,
-            @RequestBody AccountDTO accountDTO
-    ) {
-        AccountDTO updatedAccount = accountUseCase.updateAccount(id, accountDTO);
-        return ResponseEntity.ok(updatedAccount);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteAccount(
-            @PathVariable("id") Long id
-    ) {
-        accountUseCase.deleteAccount(id);
-        return ResponseEntity.noContent().build();
     }
 
     @GetMapping

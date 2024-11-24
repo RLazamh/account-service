@@ -1,7 +1,7 @@
-package com.pichincha.accountservice.infrastructure.db.services;
+package com.pichincha.accountservice.infrastructure.db.account.services;
 
-import com.pichincha.accountservice.infrastructure.db.entities.AccountEntity;
-import com.pichincha.accountservice.infrastructure.db.repositories.AccountRepository;
+import com.pichincha.accountservice.infrastructure.db.account.entities.AccountEntity;
+import com.pichincha.accountservice.infrastructure.db.account.repositories.AccountRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,14 +25,14 @@ public class AccountDbService {
         return accountRepository.findById(id);
     }
 
-    public void deleteAccountById(Long id) {
-        accountRepository.deleteById(id);
-    }
-
     public List<AccountEntity> findAllAccounts() {
         Iterable<AccountEntity> iterable = accountRepository.findAll();
         List<AccountEntity> accounts = new ArrayList<>();
         iterable.forEach(accounts::add);
         return accounts;
+    }
+
+    public List<AccountEntity> findAccountsByClientId(Long clientId) {
+        return accountRepository.findByClientId(clientId);
     }
 }
