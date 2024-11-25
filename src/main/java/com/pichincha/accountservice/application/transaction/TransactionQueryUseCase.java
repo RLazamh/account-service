@@ -43,7 +43,11 @@ public class TransactionQueryUseCase {
                 .collect(Collectors.toList());
     }
 
-    public List<TransactionDTO> getTransactionsByClientAndDateRange(Long clientId, LocalDateTime startDate, LocalDateTime endDate) {
+    public List<TransactionDTO> getTransactionsByClientAndDateRange(
+            Long clientId,
+            LocalDateTime startDate,
+            LocalDateTime endDate
+    ) {
         transactionDomainService.validateDateRange(startDate, endDate);
         List<TransactionEntity> transactions = transactionDbService.findTransactionsByClientAndDateRange(clientId, startDate, endDate);
         return transactions.stream()
