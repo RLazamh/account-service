@@ -62,6 +62,6 @@ public class GenerateReportUseCase {
     }
 
     private String getClientName(Long clientId) {
-        return "Client Name Placeholder";
+        return "Client Identification: " + clientId;
     }
 }
