@@ -8,7 +8,6 @@ import com.pichincha.accountservice.infrastructure.db.account.entities.AccountEn
 import com.pichincha.accountservice.infrastructure.db.account.services.AccountDbService;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,13 +46,6 @@ public class CrudAccountUseCase {
         return accounts.stream()
                 .map(accountMapper::toDTO)
                 .collect(Collectors.toList());
-    }
-
-    public void updateAccountBalance(Long accountId, BigDecimal amount) {
-        AccountEntity accountEntity = findAccountOrThrow(accountId);
-
-        accountDomainService.updateAccountBalance(accountEntity, amount);
-        accountDbService.saveAccount(accountEntity);
     }
 
     private AccountEntity findAccountOrThrow(Long id) {
