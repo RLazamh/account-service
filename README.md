@@ -80,6 +80,15 @@ To run the `account-service` microservice locally, follow these steps:
 
 ---
 
+## Postman Collection
+
+You can find the Postman collection for testing the `account-service` endpoints at the link below:
+
+- [Bank Account Collection](https://drive.google.com/file/d/1hAEypEhgeMO39hyL-_cVRaoeNP6SlkGQ/view?usp=sharing)
+- [Bank Transaction Collection](https://drive.google.com/file/d/1UI6PnBrR8kHkmSO9b40usrPQfvUBXmzL/view?usp=sharing)
+
+---
+
 ## AccountController
 
 The `AccountController` is a Spring Boot REST controller that exposes CRUD operations for managing account data. It acts as an intermediary between the API requests and the business logic, delegating the actual operations to the `CrudAccountUseCase`.
